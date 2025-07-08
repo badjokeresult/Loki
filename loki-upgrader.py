@@ -73,7 +73,7 @@ class LOKIUpdater(object):
     INCOMPATIBLE_RULES = []
 
     UPDATE_URL_SIGS = [
-        "https://github.com/Neo23x0/signature-base/archive/master.zip",
+        "https://github.com/badjokeresult/signature-base/archive/master.zip",
         "https://github.com/reversinglabs/reversinglabs-yara-rules/archive/develop.zip"
     ]
     
