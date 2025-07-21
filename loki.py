@@ -1407,26 +1407,26 @@ def processExists(pid):
     return psutil.pid_exists(pid)
 
 
-def updateLoki(sigsOnly, logger, args):
-    logger.log("INFO", "Update", "Starting separate updater process ...")
-    pArgs = []
+# def updateLoki(sigsOnly, logger, args):
+#     logger.log("INFO", "Update", "Starting separate updater process ...")
+#     pArgs = []
 
-    # Updater
-    if os.path.exists(os.path.join(get_application_path(args), 'loki-upgrader.exe')) and os_platform == "windows":
-        pArgs.append('loki-upgrader.exe')
-    elif os.path.exists(os.path.join(get_application_path(args), 'loki-upgrader.py')):
-        pArgs.append(args.python)
-        pArgs.append('loki-upgrader.py')
-    else:
-        logger.log("ERROR", "Update", "Cannot find neither thor-upgrader.exe nor thor-upgrader.py in the current working directory.")
+#     # Updater
+#     if os.path.exists(os.path.join(get_application_path(args), 'loki-upgrader.exe')) and os_platform == "windows":
+#         pArgs.append('loki-upgrader.exe')
+#     elif os.path.exists(os.path.join(get_application_path(args), 'loki-upgrader.py')):
+#         pArgs.append(args.python)
+#         pArgs.append('loki-upgrader.py')
+#     else:
+#         logger.log("ERROR", "Update", "Cannot find neither thor-upgrader.exe nor thor-upgrader.py in the current working directory.")
 
-    if sigsOnly:
-        pArgs.append('--sigsonly')
-        p = Popen(pArgs, shell=False)
-        p.communicate()
-    else:
-        pArgs.append('--detached')
-        Popen(pArgs, shell=False)
+#     if sigsOnly:
+#         pArgs.append('--sigsonly')
+#         p = Popen(pArgs, shell=False)
+#         p.communicate()
+#     else:
+#         pArgs.append('--detached')
+#         Popen(pArgs, shell=False)
 
 
 def walk_error(err):
@@ -1541,9 +1541,9 @@ def start_scanning(args):
         sys.exit(0)
 
     # Update
-    if args.update:
-        updateLoki(sigsOnly=False, logger=logger, args=args)
-        return
+    # if args.update:
+    #     updateLoki(sigsOnly=False, logger=logger, args=args)
+    #     return
 
     logger.log("NOTICE", "Init", "Starting Loki Scan VERSION: {3} SYSTEM: {0} TIME: {1} PLATFORM: {2}".format(
         getHostname(os_platform), getSyslogTimestamp(), getPlatformFull(), logger.version))
