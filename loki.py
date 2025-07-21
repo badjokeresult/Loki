@@ -745,7 +745,7 @@ class Loki(object):
             ###############################################################
             # THOR Process Connection Checks
             if not nolisten:
-                self.check_process_connections(process)
+                self.check_process_connections(process, logger, args)
 
             ###############################################################
             # THOR Process Anomaly Checks
