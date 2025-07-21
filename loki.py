@@ -1371,23 +1371,24 @@ class Loki(object):
 
 
 def get_application_path(args):
-    try:
-        if getattr(sys, 'frozen', False):
-            application_path = os.path.dirname(os.path.realpath(sys.executable))
-        else:
-            application_path = os.path.dirname(os.path.realpath(__file__))
-        if "~" in application_path and os_platform == "windows":
-            # print "Trying to translate"
-            # print application_path
-            application_path = win32api.GetLongPathName(application_path)
-        #if args.debug:
-        #    logger.log("DEBUG", "Init", "Application Path: %s" % application_path)
-        return application_path
-    except Exception as e:
-        print("Error while evaluation of application path")
-        traceback.print_exc()
-        if args.debug:
-            sys.exit(1)
+    return "C:\\Loki"
+    # try:
+    #     if getattr(sys, 'frozen', False):
+    #         application_path = os.path.dirname(os.path.realpath(sys.executable))
+    #     else:
+    #         application_path = os.path.dirname(os.path.realpath(__file__))
+    #     if "~" in application_path and os_platform == "windows":
+    #         # print "Trying to translate"
+    #         # print application_path
+    #         application_path = win32api.GetLongPathName(application_path)
+    #     #if args.debug:
+    #     #    logger.log("DEBUG", "Init", "Application Path: %s" % application_path)
+    #     return application_path
+    # except Exception as e:
+    #     print("Error while evaluation of application path")
+    #     traceback.print_exc()
+    #     if args.debug:
+    #         sys.exit(1)
 
 
 def is64bit():
