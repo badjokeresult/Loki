@@ -63,6 +63,7 @@ class PESieve(object):
             return results
         try:
             results_raw = json.loads(output)
+            print(results_raw)
             #results = results_raw["scan_report"]["scanned"]["modified"]
             results = results_raw["scanned"]["modified"]
         except ValueError:
