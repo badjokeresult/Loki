@@ -9,7 +9,6 @@ if __name__ == "__main__":
     os.chdir(working_dir)
     
     upgrader_args = upgrader.main()
-    upgrader_args.sigsonly = True
     upgrader.do_upgrade(upgrader_args)
 
     args = loki.main()

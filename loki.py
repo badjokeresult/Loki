@@ -136,11 +136,11 @@ class Loki(object):
             self.peSieve = PESieve(self.app_path, is64bit(), logger)
 
         # Check if signature database is present
-        sig_dir = os.path.join(self.app_path, "signature-base")
-        if not os.path.exists(sig_dir) or os.listdir(sig_dir) == []:
-            logger.log("NOTICE", "Init", "The 'signature-base' subdirectory doesn't exist or is empty. "
-                                         "Trying to retrieve the signature database automatically.")
-            updateLoki(sigsOnly=True)
+        # sig_dir = os.path.join(self.app_path, "signature-base")
+        # if not os.path.exists(sig_dir) or os.listdir(sig_dir) == []:
+        #     logger.log("NOTICE", "Init", "The 'signature-base' subdirectory doesn't exist or is empty. "
+        #                                  "Trying to retrieve the signature database automatically.")
+        #     updateLoki(sigsOnly=True)
 
         # Excludes
         self.initialize_excludes(os.path.join(self.app_path, "config/excludes.cfg".replace("/", os.sep)), logger)
