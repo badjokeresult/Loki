@@ -258,9 +258,7 @@ def get_application_path():
         traceback.print_exc()
 
 
-if __name__ == '__main__':
-
-    # Parse Arguments
+def main():
     parser = argparse.ArgumentParser(description='Loki - Upgrader')
     parser.add_argument('-l', help='Log file', metavar='log-file', default='loki-upgrade.log')
     parser.add_argument('--sigsonly', action='store_true', help='Update the signatures only', default=False)
@@ -272,6 +270,11 @@ if __name__ == '__main__':
     parser.add_argument('--detached', action='store_true', default=False, help=argparse.SUPPRESS)
 
     args = parser.parse_args()
+
+    return args
+
+
+def do_upgrade(args):
 
     # Computername
     if platform == "windows":
@@ -296,5 +299,6 @@ if __name__ == '__main__':
 
     if args.detached:
         logger.log("INFO", "Upgrader", "Press any key to return ...")
+    return
 
-    sys.exit(0)
+    #sys.exit(0)

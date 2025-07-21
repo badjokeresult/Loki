@@ -1,10 +1,13 @@
 import loki
+import upgrader
+
 
 if __name__ == "__main__":
+    upgrader_args = upgrader.main()
+    upgrader_args.sigsonly = True
+    upgrader.do_upgrade(upgrader_args)
+
     args = loki.main()
-    args.update = True
-    loki.start_scanning(args)
-    args.update = False
     args.allhds = True
     args.allreasons = True
     args.scriptanalysis = True
